@@ -77,10 +77,11 @@ pipeline {
         	helm install final --namespace staging demochart-0.0.${BUILDNO}.tgz'
     	   }
 	}
-    }
+    }	
     post {
         always{
             sh 'rm -rf ${WORKSPACE}/* ; \
                 helm uninstall integrationtest --namespace testing'
         }
     }
+}
